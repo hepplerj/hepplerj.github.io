@@ -182,7 +182,7 @@ strong, b {
       padding: 2em; } }
   @media only screen and (max-width: 425px) {
     .home {
-      background: rgba(255, 255, 255, 0.9); } }
+      background: rgba(255, 255, 255, 0.6); } }
 
 /* Header */
 header {
