@@ -84,9 +84,9 @@ or wrap each row of columns in a <div class="row"> */
 /* #Basic Styles
 ================================================== */
 body {
-  background: #FCFCFC;
+  background: #f1f1f1;
   font: 18px/1.9 "Fira Sans", "Open Sans", "Helvetica Neue", sans-serif;
-  color: #f2f2f2;
+  color: #333;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased; }
   @media only screen and (max-width: 425px) {
@@ -152,7 +152,7 @@ strong, b {
 ================================================== */
 /* Home */
 .home {
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.45);
   height: 100%;
   max-width: 400px;
   padding: 3em;
