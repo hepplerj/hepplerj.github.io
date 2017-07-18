@@ -1,0 +1,530 @@
+@charset "UTF-8";
+/* Reset & Basics (Inspired by E. Meyers)
+================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* Self Clearing Goodness */
+.container:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden; }
+
+/* Use clearfix class on parent to clear nested columns,
+or wrap each row of columns in a <div class="row"> */
+.clearfix:before,
+.clearfix:after,
+.row:before,
+.row:after {
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0; }
+
+.row:after,
+.clearfix:after {
+  clear: both; }
+
+.row,
+.clearfix {
+  zoom: 1; }
+
+/* You can also use a <br class="clear" /> to clear columns */
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0; }
+
+/************************
+		Variables
+************************/
+/*** Typography ***/
+/*** Responsive widths ***/
+/************************
+		Mixins
+************************/
+/*** Responsive mixin ***/
+/*** Borders ***/
+/*** Rounded corners ***/
+/*** Transitions ***/
+/*** Shadowz … who uses those anymore? ***/
+/* #Basic Styles
+================================================== */
+body {
+  background: #FCFCFC;
+  font: 18px/1.9 "Fira Sans", "Open Sans", "Helvetica Neue", sans-serif;
+  color: #f2f2f2;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased; }
+  @media only screen and (max-width: 425px) {
+    body {
+      font: 16px/1.875 "Fira Sans", "Open Sans", "Helvetica Neue", sans-serif, sans-serif; } }
+
+img.scale-with-grid {
+  max-width: 100%;
+  height: auto; }
+
+a {
+  color: #fff;
+  text-decoration: none;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out; }
+
+p, h2, h3, h4, h5, blockquote, aside, .note, pre, form, q, hr, img, ol, ul {
+  margin-bottom: 1.875em; }
+
+em, i {
+  font-style: italic; }
+
+strong, b {
+  font-weight: 700; }
+
+/* #Responsive Styles -- grid only
+================================================== */
+.container {
+  background: #fff;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  padding-top: 4em;
+  max-width: 800px;
+  box-sizing: border-box;
+  position: relative;
+  margin: 0 auto;
+  width: 100%; }
+
+.row {
+  margin-bottom: 4rem; }
+
+.column,
+.columns {
+  width: 100%;
+  float: left;
+  box-sizing: border-box; }
+
+.one-third.column {
+  width: 30.6666666667%; }
+
+.two-thirds.column {
+  width: 69.3333333333%; }
+  @media only screen and (max-width: 425px) {
+    .two-thirds.column {
+      width: 100%; } }
+
+.one.column {
+  width: 100%;
+  margin-left: 0; }
+
+/* Main styles
+================================================== */
+/* Home */
+.home {
+  background: rgba(255, 255, 255, 0.35);
+  height: 100%;
+  max-width: 400px;
+  padding: 3em;
+  position: absolute;
+  width: 100%;
+  /*
+  		.monogram {
+  			color: #FFF;
+  			font-family: $sans2;
+  			font-size: 3em;
+  			font-weight: 900;
+  			
+  			span { color: $light; }
+  		}
+  */ }
+  .home .splash h1 {
+    color: #333;
+    font-size: 2.5em;
+    line-height: 1.5em;
+    text-align: left; }
+    @media only screen and (max-width: 768px) {
+      .home .splash h1 {
+        font-size: 2em; } }
+  @media only screen and (max-width: 768px) {
+    .home {
+      max-width: 280px;
+      padding: 2em; } }
+  @media only screen and (max-width: 425px) {
+    .home {
+      background: rgba(255, 255, 255, 0.9); } }
+
+/* Header */
+header {
+  font-family: "Roboto Condensed", "Avenir Next Condensed", sans-serif;
+  margin-bottom: 3.5em;
+  text-align: center; }
+/*  header h1 {
+    font-family: "Playfair Display", serif; }*/
+  header.primary h1 {
+    font-size: 3em;
+    font-weight: 100;
+    margin-bottom: .25em; }
+    @media only screen and (max-width: 425px) {
+      header.primary h1 {
+        line-height: 1.15em;
+        padding: 0 .5em;
+        margin-bottom: .75em; } }
+  header h2 {
+    color: #A6B4B8;
+    font-family: "Fira Sans", "Open Sans", "Helvetica Neue", sans-serif;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 0.5; }
+    header h2 span {
+      display: inline-block;
+      position: relative; }
+      header h2 span:before, header h2 span:after {
+        content: "";
+        position: absolute;
+        height: .3em;
+        border-bottom: 2px solid #BDC1C1;
+        border-top: 2px solid #BDC1C1;
+        top: 0;
+        width: 80%; }
+        @media only screen and (max-width: 425px) {
+          header h2 span:before, header h2 span:after {
+            width: 50%; } }
+      header h2 span:before {
+        margin-right: 1.5em;
+        right: 100%; }
+      header h2 span:after {
+        margin-left: 1.5em;
+        left: 100%; }
+
+.home nav, .page nav {
+  font-family: "Roboto Condensed", "Avenir Next Condensed", sans-serif; }
+
+.home nav {
+  font-size: .85em;
+  margin-top: 4em; }
+  .home nav li {
+    display: inline-block;
+    padding-right: 2.25em; }
+  .home nav a:hover {
+    color: #089970;
+    text-decoration: underline; }
+
+.page nav ul {
+  display: flex;
+  width: 100%; }
+  .page nav ul li {
+    flex: 1 1 100%;
+    text-align: center; }
+    .page nav ul li a {
+      display: block;
+      padding: 1em 0;
+      width: 100%; }
+      .page nav ul li a:hover {
+        background: #E82C62;
+        color: #fff; }
+
+/* Articles */
+article {
+  margin: 0 0 10em;
+  padding: 0 6.25em; }
+  @media only screen and (max-width: 425px) {
+    article {
+      padding: 0 2em; } }
+  article h2 {
+    font-family: "Roboto Condensed", "Avenir Next Condensed", sans-serif;
+    font-size: 1.75em;
+    font-weight: 100;
+    line-height: 1.5em;
+    margin-bottom: 0;
+    text-align: center; }
+    article h2 a:hover {
+      color: #593C2A; }
+  article h3 {
+    color: #E82C62;
+    font-family: "Roboto Condensed", "Avenir Next Condensed", sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 1em; }
+  article h5 {
+    font-size: 1.25em;
+    font-weight: 300; }
+  article p a, article li a {
+    color: #000;
+    text-decoration: underline; }
+    article p a:hover, article li a:hover {
+      color: #E82C62; }
+  article a:hover {
+    background: #FAFAFA; }
+  article li {
+    list-style-type: disc;
+    margin-left: 2.5em; }
+    @media only screen and (max-width: 768px) {
+      article li {
+        margin-left: 1.5em; } }
+  article h4 {
+    font-family: "Roboto Mono", "Inconsolata", monospace;
+    font-size: .9rem;
+    font-weight: 100;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase; }
+    article h4 a {
+      color: #A6B4B8; }
+  article img {
+    max-width: 100%;
+    width: 100%; }
+    article img.inner {
+      background: #FAFAFA;
+      float: right;
+      margin: 0 0 2em 2em;
+      padding: .5em;
+      max-width: 33%;
+      width: 33%; }
+      @media only screen and (max-width: 425px) {
+        article img.inner {
+          max-width: 50%;
+          width: 50%; } }
+  article blockquote {
+    background: #fefefe;
+    border-left: 0.5em solid #A6B4B8;
+    font-family: "Playfair Display", serif;
+    font-size: 1.25em;
+    margin: 2em 0;
+    padding: 1em 1.5em;
+    -webkit-font-smoothing: subpixel-antialiased; }
+    article blockquote.scripture {
+      border-left: 0.5em solid #E82C62;}
+    article blockquote p {
+      margin-bottom: 0; }
+    @media only screen and (max-width: 425px) {
+      article blockquote {
+        font-size: 1.05em;
+        padding: 1em; } }
+  article q {
+    display: block;
+    font-family: "Roboto Condensed", "Avenir Next Condensed", sans-serif;
+    font-size: .85em;
+    padding-bottom: 1em;
+    padding-right: 6em;
+    text-align: right; }
+    @media only screen and (max-width: 425px) {
+      article q {
+        padding: .5em 3em .5em 0; } }
+    article q a {
+      text-decoration: underline; }
+      article q a:hover {
+        color: #E82C62; }
+  article .emph {
+    color: #A6B4B8;
+    font-size: 1.75em;
+    font-family: "Playfair Display", serif;
+    font-weight: 900;
+    margin-top: 1.5em;
+    text-align: center; }
+  article form {
+    background: #FCFCFC;
+    margin: 0 -6.25em 1.875em;
+    padding: 1em 6.25em;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; }
+    article form:hover {
+      background: #F5F5F6; }
+  article mark {
+    background-color: #fff; }
+    article mark:after {
+      content: '*'; }
+  article aside {
+    color: #A6B4B8;
+    font-size: .7em;
+    font-style: italic;
+    font-weight: 600;
+    margin: auto -6.25em 2em;
+    padding: 0 6.25em;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; }
+    article aside:before {
+      content: '*'; }
+    article aside:hover {
+      color: #585858; }
+    article aside a {
+      text-decoration: underline; }
+      article aside a:hover {
+        color: #E82C62; }
+    @media only screen and (max-width: 425px) {
+      article aside {
+        font-size: .85em; } }
+  article .note {
+    background: #FAFAFA;
+    font-size: .75em;
+    font-style: italic;
+    margin-left: -8.3em;
+    margin-right: -8.35em;
+    padding: 1em 8.3em; }
+  article small {
+    display: block;
+    font-family: "Roboto Condensed", "Avenir Next Condensed", sans-serif;
+    font-size: .85em;
+    margin-top: -3.5em; }
+  article hr {
+    border: none;
+    color: #BDC1C1;
+    letter-spacing: 1em;
+    text-align: center; }
+    article hr:before {
+      content: '•••'; }
+  article .article-end {
+    color: #DDD;
+    display: block;
+    font-family: "Playfair Display", serif;
+    font-size: 2em;
+    margin-top: 1em;
+    text-align: center; }
+  article.link h2 a:after {
+    content: ' ›'; }
+
+.page footer {
+  background: #FAFAFA;
+  font-family: "Roboto Condensed", "Avenir Next Condensed", sans-serif;
+  font-size: .9em;
+  margin-top: 5.6em;
+  padding: 7rem; }
+  .page footer p {
+    margin-bottom: 0; }
+  .page footer a {
+    color: #E82C62;
+    text-decoration: underline; }
+    .page footer a:hover {
+      background: #EEE; }
+  @media only screen and (max-width: 425px) {
+    .page footer {
+      font-size: .9em;
+      padding: 3rem; } }
+
+/* Code */
+.code {
+  background: #FAFAFA;
+  border: 4px solid #A6B4B8;
+  color: #tcolor;
+  font-family: "Roboto Mono", "Inconsolata", monospace;
+  font-size: .9em;
+  padding: .5em 1em;
+  -webkit-border-radius: 0.15em;
+  -moz-border-radius: 0.15em;
+  -ms-border-radius: 0.15em;
+  border-radius: 0.15em; }
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word; }
+
+/* Forms */
+input {
+  border: none;
+  font-variant: small-caps;
+  padding: .5em; }
+  .home input {
+    background: #585858;
+    color: #FFF; }
+  @media only screen and (max-width: 425px) {
+    input {
+      margin-bottom: 1em;
+      padding-right: .75em; } }
+
+button {
+  background: #A6B4B8;
+  border: none;
+  color: #FFF;
+  font-weight: 600;
+  padding: .5em 1.5em;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out; }
+  button:hover {
+    background: #E82C62;
+    cursor: pointer; }
+
+/* Archives */
+.archives li {
+  clear: right;
+  list-style-type: none; }
+  .archives li a {
+    display: inline-block;
+    padding: .35em;
+    width: 100%; }
+    .archives li a:hover {
+      color: #E82C62; }
+      .archives li a:hover time {
+        color: #585858; }
+    @media only screen and (max-width: 425px) {
+      .archives li a {
+        margin-bottom: .5em; } }
+  .archives li time, .archives li span {
+    color: #A6B4B8;
+    display: inline-block;
+    float: right;
+    font-family: "Roboto Condensed", "Avenir Next Condensed", sans-serif;
+    font-size: .85em;
+    margin-top: .15em;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out; }
+    @media only screen and (max-width: 768px) {
+      .archives li time, .archives li span {
+        display: block;
+        float: none;
+        font-size: .75em;
+        margin-top: 0; } }
+
+/* Social colors */
+#dribbble {
+  color: #EA4C89; }
+
+#instagram {
+  color: #3F729B; }
+
+#instapaper {
+  color: #428BCA; }
+
+#pinboard {
+  color: #0000E6; }
+
+#twitter {
+  color: #55ACEE; }
+
+#strava {
+  color: #FC4C02; }
+
+#goodreads {
+  color: #553B08; }
